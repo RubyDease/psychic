@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html land="en-US">
+  
+
+<head>
+
+ <title>Phychic Game</title>
+
+              <script language=javascript>
+
+              // defining variable for range of nubers and the number of guesses
+
+                var theNumber= Math.floor(Math.random()*20 + 1);
+                var numGuesses= 0; // number of guesses
+
+                // fuction to check input guess
+
+                  function checkguess()
+                  {
+                     var guess= document.getElementById('guess');
+                      
+                     var output= document.getElementById('output');
+                     
+                     var myNumber = guess.value; 
+                      
+                     numGuesses++;
+
+                   
+                        // comparing numbers computer to guessed number -if too low  added comment 
+
+                      if (myNumber < theNumber){
+
+                         output.value = " too low.... Try again!";
+                       }
+
+                      // comparing numbers computer to guessed number -if too high  added comment 
+
+                      else if (myNumber > theNumber){
+
+                        output.value = " Too high.... Try again!";
+                      }
+                        // comparing computer number to guessed number -if they are equal ...WIN!
+
+                        else if (myNumber == theNumber)
+                        {
+
+                       output.value= "You've guessed the number in"  + numGuesses + "tries, Play again...";
+                       output.value =("Congratulations....You Won after  " +numGuesses+  " Guesses!");
+
+                       // making the game to play again...
+
+                         theNumber= Math.floor(Math.random()*20+1);
+                         numGuesses=0;
+                        }
+
+                }
+
+             </script>
+      
+      <!-- styling html-->
+
+             <style>
+            
+              body{
+                background-color: lightgrey;
+                text-align: center;
+              }
+              
+                h1 { 
+                  color: darkblue; 
+                }
+
+                  form {
+                     font-size: 30px;
+                     font-style: oblique;
+                  }
+
+                    input {
+                      font-size: 20px;
+                    }
+
+
+
+            </style>
+
+          </head>
+    <body>
+      
+      <h1>Phsychic Game</h1>
+      <img  src="./images/psychic-2.jpg" style="width:350px;height:228px;">
+
+          <form>
+            Guess a number from 1 to 20  
+            </br>
+            </br>
+            <input id="guess" type="text"  size="5"/>
+            <input type="button"  value="click to validate Guess" onclick="checkguess()"/>
+            </br>
+            </br> 
+            Your number is .....</br>
+            <input id="output"  type="text"  size="40" /><br/>
+
+            
+          </form>
+    </body>
+</html>
+
